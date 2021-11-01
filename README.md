@@ -1,6 +1,6 @@
 # Support Ticket
 
-A support ticket application built using the Laravel framework.
+Сайт для техподдержки, построенный на базе фреймворка Laravel.
 
 ## Установка:
 
