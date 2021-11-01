@@ -2,28 +2,26 @@
 
 A support ticket application built using the Laravel framework.
 
-## Getting Started
+## Установка:
 
-Clone the project repository by running the command below if you use SSH
+Клонировать репо:
 
-```git clone git@github.com:ammezie/support-ticket.git```
+```git clone git@github.com:Qweeeeex/test-ticket.git```
 
-If you use https, use this instead
+```https://github.com/Qweeeeex/test-ticket.git```
 
-```git clone https://github.com/ammezie/support-ticket.git```
-
-Run the command below to install Laravel dependencies 
+В консоли ввести:
 
 ```composer install```
 
-## Setting Up
-Setup your database and `cd` into the project directory then run:
+## Настройка:
+Настройте бд и войдите в каталог проекта, затем запустите:
 
 ```php artisan migrate```
 
-Once the database is settup and migrations are up, run
+Запуск проекта:
 
 ```php artisan serve```
 
-and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.
+Чтобы увидеть работу, перейдите по адресу http://localhost:8000/
 
