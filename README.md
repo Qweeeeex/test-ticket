@@ -23,6 +23,18 @@
 
 ```php artisan migrate```
 
+Если вы хотите заполнить базу данных тестовыми данными для входа в систему, введите в консоль:
+
+```php artisan db:seed```
+
+Данные для админа:
+```email: admin@admin.com```
+```pass: admin```
+
+Данные для пользователя:
+```email: user@user.com```
+```pass: user```
+
 Запуск проекта:
 
 ```php artisan serve```
