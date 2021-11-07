@@ -12,6 +12,7 @@ class DBSeeder extends Seeder
     public function run()
     {
         factory(App\User::class, 'admin', 1)->create();
+        factory(App\User::class, 'user_pass', 1)->create();
         factory(App\User::class, 'user', 20)->create();
     }
 }
