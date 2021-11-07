@@ -3,7 +3,7 @@
 namespace App\Filters;
 
 use App\Comment;
-use App\Models\User;
+use App\User;
 use App\Ticket;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -41,15 +41,20 @@ class TicketFilter extends \App\Filters\QueryFilter
             if (sizeof($ticket->comments) == 0) {
                 $withoutComments[] = $ticket->id;
             } else {
-                if ($ticket->comments->user == ::where('isAdmin', 1)) {
-                    $withComments[] = $ticket->id;
+                foreach ($ticket->comments as $comment) {
+                    foreach (User::where('is_admin', 1)->get() as $admin) {
+                        if ($comment->user_id == $admin->id) {
+                            $withComments[] = $ticket->id;
+                            break;
+                        }
+                    }
                 }
             }
-        }
-        if ($answers == 'yes') {
-            return $this->builder->whereIn('id', $withComments);
-        } elseif ($answers == 'no') {
-            return $this->builder->whereIn('id', $withoutComments);
+            if ($answers == 'yes') {
+                return $this->builder->whereIn('id', $withComments);
+            } elseif ($answers == 'no') {
+                return $this->builder->whereIn('id', $withoutComments);
+            }
         }
     }
 }
