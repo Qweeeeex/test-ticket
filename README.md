@@ -19,6 +19,8 @@
 
 Войдите в каталог проекта, затем запустите:
 
+```php artisan key:generate```
+
 ```php artisan migrate```
 
 Запуск проекта:
