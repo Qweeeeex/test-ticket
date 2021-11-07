@@ -36,6 +36,7 @@ class TicketFilter extends \App\Filters\QueryFilter
         $tickets = Ticket::all();
         $withComments = [];
         $withoutComments = [];
+        $flag = 0;
 
         foreach ($tickets as $ticket) {
             if (sizeof($ticket->comments) == 0) {
@@ -45,8 +46,12 @@ class TicketFilter extends \App\Filters\QueryFilter
                     foreach (User::where('is_admin', 1)->get() as $admin) {
                         if ($comment->user_id == $admin->id) {
                             $withComments[] = $ticket->id;
+                            $flag = 1;
                             break;
                         }
+                    }
+                    if ($flag == 1) {
+                        break;
                     }
                 }
             }
