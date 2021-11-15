@@ -55,7 +55,7 @@ $factory->defineAs(App\Category::class, 'categories1', function (Faker\Generator
 });
 $factory->defineAs(App\Category::class, 'categories2', function (Faker\Generator $faker) {
     return [
-        'name' => 'Third',
+        'name' => 'Second',
     ];
 });
 $factory->defineAs(App\Category::class, 'categories3', function (Faker\Generator $faker) {
