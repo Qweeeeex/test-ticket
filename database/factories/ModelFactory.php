@@ -48,3 +48,18 @@ $factory->defineAs(App\User::class, 'user_pass', function (Faker\Generator $fake
         'is_admin' => 0,
     ];
 });
+$factory->defineAs(App\Category::class, 'categories1', function (Faker\Generator $faker) {
+    return [
+        'name' => 'First',
+    ];
+});
+$factory->defineAs(App\Category::class, 'categories2', function (Faker\Generator $faker) {
+    return [
+        'name' => 'Third',
+    ];
+});
+$factory->defineAs(App\Category::class, 'categories3', function (Faker\Generator $faker) {
+    return [
+        'name' => 'Third',
+    ];
+});
