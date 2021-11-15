@@ -56,7 +56,7 @@ class TicketsController extends Controller
     public function create()
     {
         $ticket = Ticket::where('user_id', Auth::user()->id)->latest()->get()->first();
-        if (sizeof($ticket) > 1) {
+        if (sizeof($ticket) >= 1) {
             $created_at = $ticket->created_at;
             $time = \Carbon\Carbon::now();
             if ($time->diffInSeconds($created_at) >= 86400) {
