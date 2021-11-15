@@ -93,11 +93,12 @@ class TicketsController extends Controller
             $extension = $request->file('file')->getClientOriginalExtension();
             $user_id = Auth::user()->id;
             $filename = $ticket_id;
-            $file->move('D:\OpenServer\domains\ticket\ticket\storage\app\public\img', $filename.'.'.$extension);
+            $storage_path = storage_path();
+            $file->move($storage_path.'\app\public\img\\', $filename.'.'.$extension);
 
             $ticket = new Ticket([
                 'title'     => $request->input('title'),
-                'user_id'   => Auth::user()->id,
+                'user_id'   => $user_id,
                 'ticket_id' => $ticket_id,
                 'category_id'  => $request->input('category'),
                 'priority'  => $request->input('priority'),
@@ -123,7 +124,7 @@ class TicketsController extends Controller
 
         $mailer->sendTicketInformation(Auth::user(), $ticket);
 
-        return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
+        return redirect('/my_tickets')->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
     }
 
     public function edit()
